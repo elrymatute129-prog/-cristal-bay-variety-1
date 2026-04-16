@@ -646,6 +646,29 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="form-label">Order Status</label>
+                    <div class="form-group">
+            <label class="form-label">Estado del Pedido</label>
+            <button id="orderButton" style="width:100%; padding:15px; background:green; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">
+                ENVIAR PEDIDO POR WHATSAPP
+            </button>
+        </div>
+    </div> <script>
+        // Esto hace que la app sepa qué tienda elegiste
+        document.querySelectorAll('input[name="store"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                console.log("Tienda elegida: " + this.value);
+            });
+        });
+
+        // Esto envía el mensaje a tu WhatsApp
+        document.getElementById('orderButton').addEventListener('click', function() {
+            const tienda = document.querySelector('input[name="store"]:checked').value;
+            const mensaje = "Hola Crystal Bay, quiero hacer un pedido de la tienda: " + tienda;
+            const telefono = "+505 8219 8746"; // <-- AQUÍ PONÉ TU NÚMERO REAL
+            window.open("https://wa.me/" + telefono + "?text=" + encodeURIComponent(mensaje));
+        });
+    </script>
+</body>
+</html>
+
   
